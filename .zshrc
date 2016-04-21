@@ -100,6 +100,9 @@ alias apacheconf='sudo vim /etc/apache2/httpd.conf'
 # edit hosts
 alias hosts='sudo vim /etc/hosts'
 
+# edit this file
+alias editzsh='sudo vim ~/.zshrc'
+
 # edit user.conf
 alias userconf='sudo vim /etc/apache2/users/arbitrarily.conf'
 
