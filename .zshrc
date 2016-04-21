@@ -126,24 +126,24 @@ alias keys='pbcopy < ~/.ssh/id_rsa.pub'
 # find todos
 alias todos='ack -n -R --nogroup "(TODO|FIND|FIX(ME)?):" --ignore-dir={composer,vendor,vendors,min,lib}'
 
-# # find by name
+# find by name
 alias qfind="find . -name "
 
 # mute
 alias stfu='osascript -e "set volume output muted true"'
 
-# # copy pwd
+# copy pwd
 alias cpwd='pwd|tr -d "\n"|pbcopy'
-# # alias cl='fc -e -|pbcopy'
+# alias cl='fc -e -|pbcopy'
 
-# # remove .git
+# remove .git
 alias ungit='find . -name '.git' -exec rm -rf {} \;'
 
-# # IP info
+# IP info
 alias ip='curl http://ipecho.net/plain; echo'
-# # alias ip="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
+# alias ip="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 
-# # computer power options
+# computer power options
 # alias reboot='sudo /sbin/reboot'
 # alias shutdown='sudo /sbin/shutdown'
 # alias lock='/System/Library/CoreServices/"Menu Extras"/User.menu/Contents/Resources/CGSession -suspend'
@@ -155,8 +155,8 @@ alias glg='git log --date-order --all --graph --format="%C(green)%h%Creset %C(ye
 
 # git log files changed
 alias glg2='git log --date-order --all --graph --name-status --format="%C(green)%H%Creset %C(yellow)%an%Creset %C(blue bold)%ar%Creset %C(red bold)%d%Creset%s"'
-#
-# # history
+
+# history
 alias h='history'
 
 # active connections
