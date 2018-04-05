@@ -46,18 +46,19 @@ ZSH_THEME="honukai"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+#
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git cloudapp node npm bower brew osx extract z composer)
 
 # User configuration
-
-export PATH="/bin:/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:/bin:/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:/Users/arbitrarily/pear/bin:/Users/arbitrarily/.composer/vendor/bin:/usr/local/share/npm/bin:/usr/local/bin:/usr/local/mysql/bin:/usr/local/share/npm/lib/node_modules/grunt-cli/bin:/usr/sbin/apachectl:/usr/sbin:/usr/local/opt/php56/libexec/apache2:/usr/local/share/npm/bin:/usr/local/mongodb/bin"
+export PATH="/usr/bin/local:/usr/local/bin/psql:/bin:/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:/bin:/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:/Users/arbitrarily/pear/bin:/Users/arbitrarily/.composer/vendor/bin:/usr/local/share/npm/bin:/usr/local/bin:/usr/local/mysql/bin:/usr/local/share/npm/lib/node_modules/grunt-cli/bin:/usr/sbin/apachectl:/usr/sbin:/usr/local/share/npm/bin:/usr/local/mongodb/bin:/usr/local/opt/ncurses/bin:/usr/local/php5/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
+export PATH="$(brew --prefix homebrew/php/php72)/bin:$PATH"
 
+# Reload
 source $ZSH/oh-my-zsh.sh
-
 source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # You may need to manually set your language environment
@@ -89,7 +90,7 @@ alias ~="cd ~"
 alias c='clear'
 
 # top as htop
-alias top='htop'
+# alias top='htop'
 
 # edit php.ini
 alias phpini='sudo vim /usr/local/etc/php/5.6/php.ini'
@@ -115,16 +116,14 @@ alias apachelogs="less +F /var/log/apache2/error_log"
 # colored search in files
 alias grep='grep --color=auto'
 
-# # common projects
-alias lexi='cd /Users/arbitrarily/Git/lexichronic-v3/'
-alias aggro='cd /Users/arbitrarily/Git/datnexus'
-alias roses='cd /Users/arbitrarily/Git/roserenegades'
-alias lexisass='cd /Users/arbitrarily/Git/lexichronic-v3/wp-content/themes/lexiv3/grunt'
-alias aggrosass='cd /Users/arbitrarily/Git/datnexus/wp-content/themes/datnexus/grunt'
-alias rosesass='cd /Users/arbitrarily/Git/roserenegades/wp-content/themes/roserenegades/grunt'
-
 # keys
 alias keys='pbcopy < ~/.ssh/id_rsa.pub'
+
+# flush dns
+alias flush='sudo ifconfig en0 down && sudo ifconfig en1 down && sudo ifconfig en2 down && sudo route flush && sudo ifconfig en0 up && sudo ifconfig en1 up && sudo ifconfig en2 up'
+
+# edit zshell
+alias zshrc='sudo vim ~/.zshrc'
 
 # find todos
 alias todos='ack -n -R --nogroup "(TODO|FIND|FIX(ME)?):" --ignore-dir={composer,vendor,vendors,min,lib}'
@@ -147,10 +146,10 @@ alias ip='curl http://ipecho.net/plain; echo'
 # alias ip="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 
 # computer power options
-# alias reboot='sudo /sbin/reboot'
-# alias shutdown='sudo /sbin/shutdown'
-# alias lock='/System/Library/CoreServices/"Menu Extras"/User.menu/Contents/Resources/CGSession -suspend'
-# alias poweroff='sudo /sbin/poweroff'
+alias reboot='sudo /sbin/reboot'
+alias shutdown='sudo /sbin/shutdown'
+alias lock='/System/Library/CoreServices/"Menu Extras"/User.menu/Contents/Resources/CGSession -suspend'
+alias poweroff='sudo /sbin/poweroff'
 # alias halt='sudo /sbin/halt'
 
 # git log detailed
@@ -162,8 +161,80 @@ alias glg2='git log --date-order --all --graph --name-status --format="%C(green)
 # history
 alias h='history'
 
+# git folder
+alias gg='cd ~/Git'
+
 # active connections
 alias connections='lsof -i'
 
 # alias for detailed, colored ls
 alias ls='ls -lhaG'
+
+# PATH
+export PATH="/usr/local/bin:$PATH"
+
+# PIP
+export PIP_REQUIRE_VIRTUALENV=false
+
+# MiniConda
+# export PATH="/Users/arbitrarily/miniconda3/bin:$PATH"
+
+# Node
+export PATH="$HOME/.node/bin:$PATH"
+
+# Check WIFI Passwords
+# wifi-password
+
+# Alt Neo Fetch
+alias neofetch2="neofetch \
+--config off \
+--block_range 1 8 \
+--bold off \
+--uptime_shorthand on \
+--gtk_shorthand on \
+--colors 4 1 8 8 8 7 \
+"
+
+# Neo Fetch
+neofetch --config ~/.config/neofetch/config.conf
+
+# Run NeoFetch
+alias neo="neofetch --config ~/.config/neofetch/config.conf"
+
+# Edit NeoFetch
+alias editneo="vim /Users/arbitrarily/Git/neofetch-settings/config.conf"
+
+# Startup Common Projects
+alias proj-disrupt="itermocil disrupt"
+alias proj-civil="itermocil civil"
+alias proj-joincivil="itermocil joincivil"
+alias proj-ethereal="itermocil ethereal"
+alias proj-etherinthenews="itermocil etherinthenews"
+alias proj-lineage="itermocil lineage"
+alias proj-clansky="itermocil clansky"
+alias proj-special="itermocil special"
+alias proj-jwa="itermocil jwa"
+alias proj-pegasys="itermocil pegasys"
+alias proj-groundfloor="itermocil groundfloor"
+
+# Iterm Shell Integration
+source ~/.iterm2_shell_integration.`basename $SHELL`
+
+# Google Search
+alias define='googler -n 2 --colors bjdxxy define'
+
+alias g='googler -n 7 -t m24 --colors bjdxxy'
+
+# Now Playing
+alias nowplaying="sh ~/song.sh"
+
+# Send Nowplaying to Slack
+alias slackmusic="cd ~/Git/node-slack-fm-status && node run.js desmosthenes"
+
+# Close Finder Windows
+alias finder-close="osascript -e 'tell application "Finder" to close every window'"
+
+# Load NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
