@@ -1,6 +1,9 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/arbitrarily/.oh-my-zsh
 
+# Run NeoFetch
+neofetch --config ~/.config/neofetch/config.conf
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -55,7 +58,7 @@ plugins=(git cloudapp node npm bower brew osx extract z composer)
 # User configuration
 export PATH="/usr/bin/local:/usr/local/bin/psql:/bin:/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:/bin:/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:/Users/arbitrarily/pear/bin:/Users/arbitrarily/.composer/vendor/bin:/usr/local/share/npm/bin:/usr/local/bin:/usr/local/mysql/bin:/usr/local/share/npm/lib/node_modules/grunt-cli/bin:/usr/sbin/apachectl:/usr/sbin:/usr/local/share/npm/bin:/usr/local/mongodb/bin:/usr/local/opt/ncurses/bin:/usr/local/php5/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
-export PATH="$(brew --prefix homebrew/php/php72)/bin:$PATH"
+# export PATH="$(brew --prefix homebrew/php/php72)/bin:$PATH"
 
 # Reload
 source $ZSH/oh-my-zsh.sh
@@ -98,11 +101,14 @@ alias phpini='sudo vim /usr/local/etc/php/5.6/php.ini'
 # edit httpd.conf
 alias apacheconf='sudo vim /etc/apache2/httpd.conf'
 
+# edit new httpd.conf
+alias apachconfnew='sudo vim /usr/local/etc/httpd/httpd.conf'
+
 # edit hosts
 alias hosts='sudo vim /etc/hosts'
 
 # edit this file
-alias editzsh='sudo vim ~/.zshrc'
+alias editzsh='sudo vim ~/Git/zshrc/.zshrc'
 
 # edit user.conf
 alias userconf='sudo vim /etc/apache2/users/arbitrarily.conf'
@@ -195,9 +201,6 @@ alias neofetch2="neofetch \
 --colors 4 1 8 8 8 7 \
 "
 
-# Neo Fetch
-neofetch --config ~/.config/neofetch/config.conf
-
 # Run NeoFetch
 alias neo="neofetch --config ~/.config/neofetch/config.conf"
 
@@ -216,25 +219,46 @@ alias proj-special="itermocil special"
 alias proj-jwa="itermocil jwa"
 alias proj-pegasys="itermocil pegasys"
 alias proj-groundfloor="itermocil groundfloor"
+alias proj-kaleido="itermocil kaleido"
+alias proj-usesofcbd="itermocil usesofcbd"
+alias proj-setle-site="itermocil setle-site"
+alias proj-dumplinghouse-media="itermocil dumplinghouse-media"
+alias proj-dumplinghouse-shop="itermocil dumplinghouse-shop"
+alias proj-dumplinghouse-labs="itermocil dumplinghouse-labs"
+alias proj-dumplinghouse-studios="itermocil dumplinghouse-studios"
+alias proj-openlaw="itermocil openlaw"
+alias proj-skypod="itermocil skypod"
+alias proj-nomadworks="itermocil nomadworks"
 
 # Iterm Shell Integration
 source ~/.iterm2_shell_integration.`basename $SHELL`
+compctl -g '~/.itermocil/*(:t:r)' itermocil
 
 # Google Search
 alias define='googler -n 2 --colors bjdxxy define'
-
-alias g='googler -n 7 -t m24 --colors bjdxxy'
+alias g='googler -n 11 -t m18 --colors bjdxxy'
+alias gn='googler -n 11 -N -t d1 --colors bjdxxy'
 
 # Now Playing
 alias nowplaying="sh ~/song.sh"
 
 # Send Nowplaying to Slack
 alias slackmusic="cd ~/Git/node-slack-fm-status && node run.js desmosthenes"
+alias slackmusic2="cd ~/Git/node-slack-fm-status-consensys && node run.js desmosthenes"
 
 # Close Finder Windows
 alias finder-close="osascript -e 'tell application "Finder" to close every window'"
+
+# Clean Brew
+alias brewski='brew update && brew upgrade && brew cleanup; brew doctor'
+
+# Display Weather
+alias weather="curl wttr.in/nyc"
 
 # Load NVM
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Autocompletion
+eval "$(grunt --completion=zsh)"
