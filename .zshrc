@@ -229,6 +229,14 @@ alias proj-dumplinghouse-studios="itermocil dumplinghouse-studios"
 alias proj-openlaw="itermocil openlaw"
 alias proj-skypod="itermocil skypod"
 alias proj-nomadworks="itermocil nomadworks"
+alias proj-oceanic="itermocil oceanic"
+alias proj-ujo="itermocil ujo"
+alias proj-mb4="itermocil mb4"
+alias proj-351="itermocil 351studios"
+alias proj-fwbw="itermocil fwbw"
+
+# Edit iTermocil
+alias edititermocil="subl ~/.itermocil"
 
 # Iterm Shell Integration
 source ~/.iterm2_shell_integration.`basename $SHELL`
