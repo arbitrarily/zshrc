@@ -96,7 +96,7 @@ alias c='clear'
 # alias top='htop'
 
 # edit php.ini
-alias phpini='sudo vim /usr/local/etc/php/5.6/php.ini'
+alias phpini='sudo vim /usr/local/etc/php/7.2/php.ini'
 
 # edit httpd.conf
 alias apacheconf='sudo vim /etc/apache2/httpd.conf'
@@ -174,7 +174,7 @@ alias gg='cd ~/Git'
 alias connections='lsof -i'
 
 # alias for detailed, colored ls
-alias ls='ls -lhaG'
+alias ls='exa -lhaG'
 
 # PATH
 export PATH="/usr/local/bin:$PATH"
@@ -234,6 +234,10 @@ alias proj-ujo="itermocil ujo"
 alias proj-mb4="itermocil mb4"
 alias proj-351="itermocil 351studios"
 alias proj-fwbw="itermocil fwbw"
+alias proj-nbtv="itermocil nbtv"
+alias proj-drumg="itermocil drumg"
+alias proj-balanc3="itermocil balanc3"
+alias proj-consensys-sports="itermocil consensys-sports"
 
 # Edit iTermocil
 alias edititermocil="subl ~/.itermocil"
@@ -245,7 +249,7 @@ compctl -g '~/.itermocil/*(:t:r)' itermocil
 # Google Search
 alias define='googler -n 2 --colors bjdxxy define'
 alias g='googler -n 11 -t m18 --colors bjdxxy'
-alias gn='googler -n 11 -N -t d1 --colors bjdxxy'
+alias gn='googler -N -n 11 -t d1 --colors bjdxxy'
 
 # Now Playing
 alias nowplaying="sh ~/song.sh"
@@ -255,7 +259,7 @@ alias slackmusic="cd ~/Git/node-slack-fm-status && node run.js desmosthenes"
 alias slackmusic2="cd ~/Git/node-slack-fm-status-consensys && node run.js desmosthenes"
 
 # Close Finder Windows
-alias finder-close="osascript -e 'tell application "Finder" to close every window'"
+alias finder-close="osascript -e 'tell application \"Finder\" to close every window'"
 
 # Clean Brew
 alias brewski='brew update && brew upgrade && brew cleanup; brew doctor'
@@ -267,6 +271,12 @@ alias weather="curl wttr.in/nyc"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Start the Day
+alias communication="open -a 'Slack' && open -a 'Airmail 2' && open -a 'Discord'"
+
+# How Do I
+alias hdi='function hdi(){ howdoi $* -c -n 5; }; hdi'
 
 # Autocompletion
 eval "$(grunt --completion=zsh)"
