@@ -56,13 +56,14 @@ ZSH_THEME="honukai"
 plugins=(git cloudapp node npm bower brew osx extract z composer)
 
 # User configuration
-export PATH="/usr/bin/local:/usr/local/bin/psql:/bin:/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:/bin:/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:/Users/arbitrarily/pear/bin:/Users/arbitrarily/.composer/vendor/bin:/usr/local/share/npm/bin:/usr/local/bin:/usr/local/mysql/bin:/usr/local/share/npm/lib/node_modules/grunt-cli/bin:/usr/sbin/apachectl:/usr/sbin:/usr/local/share/npm/bin:/usr/local/mongodb/bin:/usr/local/opt/ncurses/bin:/usr/local/php5/bin"
+export PATH="/usr/bin/local:/usr/local/bin/psql:/bin:/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:/bin:/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:/Users/arbitrarily/pear/bin:/Users/arbitrarily/.composer/vendor/bin:/usr/local/share/npm/bin:/usr/local/bin:/usr/local/mysql/bin:/usr/local/share/npm/lib/node_modules/grunt-cli/bin:/usr/sbin/apachectl:/usr/sbin:/usr/local/share/npm/bin:/usr/local/mongodb/bin:/usr/local/opt/ncurses/bin:/usr/local/php5/bin:/Users/arbitrarily/Library/Python/2.7/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 # export PATH="$(brew --prefix homebrew/php/php72)/bin:$PATH"
 
 # Reload
 source $ZSH/oh-my-zsh.sh
 source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+alias reload="source ~/.zshrc"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -96,7 +97,7 @@ alias c='clear'
 # alias top='htop'
 
 # edit php.ini
-alias phpini='sudo vim /usr/local/etc/php/7.2/php.ini'
+alias phpini='sudo vim /usr/local/etc/php/7.3/php.ini'
 
 # edit httpd.conf
 alias apacheconf='sudo vim /etc/apache2/httpd.conf'
@@ -148,7 +149,7 @@ alias cpwd='pwd|tr -d "\n"|pbcopy'
 alias ungit='find . -name '.git' -exec rm -rf {} \;'
 
 # IP info
-alias ip='curl http://ipecho.net/plain; echo'
+alias ip='curl https://ipinfo.io/plain; echo'
 # alias ip="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 
 # computer power options
@@ -238,6 +239,16 @@ alias proj-nbtv="itermocil nbtv"
 alias proj-drumg="itermocil drumg"
 alias proj-balanc3="itermocil balanc3"
 alias proj-consensys-sports="itermocil consensys-sports"
+alias proj-allinfra="itermocil allinfra"
+alias proj-blockchain-ireland="itermocil blockchain-ireland"
+alias proj-ansero="itermocil ansero"
+alias proj-consensys-health="itermocil consensys-health"
+alias proj-metamask="itermocil metamask"
+alias proj-metamask-wordpress="itermocil metamask-wordpress"
+alias proj-tfx="itermocil tfx"
+alias proj-good-apple="itermocil good-apple"
+alias proj-day-one-ventures="itermocil day-one-ventures"
+alias proj-lexichronic="itermocil lexichronic"
 
 # Edit iTermocil
 alias edititermocil="subl ~/.itermocil"
@@ -256,7 +267,6 @@ alias nowplaying="sh ~/song.sh"
 
 # Send Nowplaying to Slack
 alias slackmusic="cd ~/Git/node-slack-fm-status && node run.js desmosthenes"
-alias slackmusic2="cd ~/Git/node-slack-fm-status-consensys && node run.js desmosthenes"
 
 # Close Finder Windows
 alias finder-close="osascript -e 'tell application \"Finder\" to close every window'"
@@ -273,10 +283,14 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Start the Day
-alias communication="open -a 'Slack' && open -a 'Airmail 2' && open -a 'Discord'"
+alias communication="open -a 'Slack' && open -a 'Airmail 2' && open -a 'Discord' && open -a 'monday'" && open -a 'Telegram'
 
 # How Do I
 alias hdi='function hdi(){ howdoi $* -c -n 5; }; hdi'
 
 # Autocompletion
 eval "$(grunt --completion=zsh)"
+
+# The Fuck
+eval $(thefuck --alias)
+
