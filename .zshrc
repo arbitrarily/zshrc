@@ -283,7 +283,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Start the Day
-alias communication="open -a 'Slack' && open -a 'Airmail 2' && open -a 'Discord' && open -a 'monday'" && open -a 'Telegram'
+alias communication="open -a 'Slack' && open -a 'Airmail 2' && open -a 'Discord' && open -a 'monday' && open -a 'Telegram'"
 
 # How Do I
 alias hdi='function hdi(){ howdoi $* -c -n 5; }; hdi'
