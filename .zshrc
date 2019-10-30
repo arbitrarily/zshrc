@@ -306,3 +306,8 @@ alias check-open-connection="sudo lsof -iTCP -sTCP:LISTEN -n -P"
 
 # SQL Dump Script
 alias sqldump="sh dump.sh SERVERUSERNAME SERVERIP DBNAME DBUSERNAME DBPASSWORD"
+
+# RIPGREP
+alias rgweb="rg --type-add 'web:*.{html,css,js,php}'"
+
+
