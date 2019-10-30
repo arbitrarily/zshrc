@@ -249,6 +249,9 @@ alias proj-tfx="itermocil tfx"
 alias proj-good-apple="itermocil good-apple"
 alias proj-day-one-ventures="itermocil day-one-ventures"
 alias proj-lexichronic="itermocil lexichronic"
+alias proj-miroculus="itermocil miroculus"
+alias proj-zacklevandov="itermocil zack"
+alias proj-made-you-feel="itermocil made-you-feel"
 
 # Edit iTermocil
 alias edititermocil="subl ~/.itermocil"
@@ -283,7 +286,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Start the Day
-alias communication="open -a 'Slack' && open -a 'Airmail 2' && open -a 'Discord' && open -a 'monday' && open -a 'Telegram'"
+alias communication="open -a 'Slack' && open -a 'Thunderbird' && open -a 'Discord' && open -a 'Telegram'"
 
 # How Do I
 alias hdi='function hdi(){ howdoi $* -c -n 5; }; hdi'
@@ -294,3 +297,12 @@ eval "$(grunt --completion=zsh)"
 # The Fuck
 eval $(thefuck --alias)
 
+# vTop
+alias top="vtop --theme wizard"
+alias oldtop="/usr/bin/top"
+
+# Check Active Connections
+alias check-open-connection="sudo lsof -iTCP -sTCP:LISTEN -n -P"
+
+# SQL Dump Script
+alias sqldump="sh dump.sh SERVERUSERNAME SERVERIP DBNAME DBUSERNAME DBPASSWORD"
