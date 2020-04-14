@@ -290,16 +290,10 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Start the Day
-alias communication="open -a 'Slack' && open -a 'Thunderbird' && open -a 'Discord'"
-
-# How Do I
-# alias hdi='function hdi(){ howdoi $* -c -n 5; }; hdi'
+alias communication="open -a 'Slack' && open -a 'Thunderbird' && open -a 'Discord' && open -a 'Telegram' && open -a 'Messages'"
 
 # Autocompletion
 eval "$(grunt --completion=zsh)"
-
-# The Fuck
-# eval $(thefuck --alias)
 
 # vTop
 alias top="vtop --theme wizard"
@@ -310,7 +304,7 @@ alias check-open-connection="sudo lsof -iTCP -sTCP:LISTEN -n -P"
 
 # SQL Dump Script
 # sh dump.sh SERVERUSERNAME SERVERIP DBNAME DBUSERNAME DBPASSWORD
-alias sqldump="sh dump.sh"
+alias sqldump="sh dump.sh SERVERUSERNAME SERVERIP DBNAME DBUSERNAME DBPASSWORD"
 
 # RIPGREP
 alias rgweb="rg --type-add 'web:*.{html,css,js,php}'"
@@ -322,7 +316,11 @@ alias reload-yabai="yabai -m rule --add app=SomeName manage=off"
 export PATH=$PATH:/Users/arbitrarily/Downloads/usdpython_0/USD
 export PYTHONPATH=$PYTHONPATH:/Users/arbitrarily/Downloads/usdpython_0/USD
 
+# PHP Stuff
 export PATH="/usr/local/opt/php@7.3/bin:$PATH"
 export PATH="/usr/local/opt/php@7.3/sbin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Servers
+alias dobox="ssh marko@45.55.60.122"
