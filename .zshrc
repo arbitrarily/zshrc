@@ -130,7 +130,8 @@ alias keys='pbcopy < ~/.ssh/id_rsa.pub'
 alias flush='sudo ifconfig en0 down && sudo ifconfig en1 down && sudo ifconfig en2 down && sudo route flush && sudo ifconfig en0 up && sudo ifconfig en1 up && sudo ifconfig en2 up'
 
 # edit zshell
-alias zshrc='sudo vim ~/.zshrc'
+# alias zshrc='sudo vim ~/.zshrc'
+alias zshrc='editzsh'
 
 # find todos
 alias todos='ack -n -R --nogroup "(TODO|FIND|FIX(ME)?):" --ignore-dir={composer,vendor,vendors,min,lib}'
@@ -252,6 +253,9 @@ alias proj-lexichronic="itermocil lexichronic"
 alias proj-miroculus="itermocil miroculus"
 alias proj-zacklevandov="itermocil zack"
 alias proj-made-you-feel="itermocil made-you-feel"
+alias proj-nuristay="itermocil nuristay"
+alias proj-breakaway="itermocil breakaway"
+alias proj-one-planet-one-future="itermocil one-planet-one-future"
 
 # Edit iTermocil
 alias edititermocil="subl ~/.itermocil"
@@ -275,7 +279,7 @@ alias slackmusic="cd ~/Git/node-slack-fm-status && node run.js desmosthenes"
 alias finder-close="osascript -e 'tell application \"Finder\" to close every window'"
 
 # Clean Brew
-alias brewski='brew update && brew upgrade && brew cleanup; brew doctor'
+alias brewski='brew update && brew upgrade && brew cleanup; brew doctor; brew missing; echo "Brewski Complete" | terminal-notifier -sound default -appIcon https://brew.sh/assets/img/homebrew-256x256.png -title "Homebrew"'
 
 # Display Weather
 alias weather="curl wttr.in/nyc"
@@ -286,16 +290,16 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Start the Day
-alias communication="open -a 'Slack' && open -a 'Thunderbird' && open -a 'Discord' && open -a 'Telegram'"
+alias communication="open -a 'Slack' && open -a 'Thunderbird' && open -a 'Discord'"
 
 # How Do I
-alias hdi='function hdi(){ howdoi $* -c -n 5; }; hdi'
+# alias hdi='function hdi(){ howdoi $* -c -n 5; }; hdi'
 
 # Autocompletion
 eval "$(grunt --completion=zsh)"
 
 # The Fuck
-eval $(thefuck --alias)
+# eval $(thefuck --alias)
 
 # vTop
 alias top="vtop --theme wizard"
@@ -305,9 +309,20 @@ alias oldtop="/usr/bin/top"
 alias check-open-connection="sudo lsof -iTCP -sTCP:LISTEN -n -P"
 
 # SQL Dump Script
-alias sqldump="sh dump.sh SERVERUSERNAME SERVERIP DBNAME DBUSERNAME DBPASSWORD"
+# sh dump.sh SERVERUSERNAME SERVERIP DBNAME DBUSERNAME DBPASSWORD
+alias sqldump="sh dump.sh"
 
 # RIPGREP
 alias rgweb="rg --type-add 'web:*.{html,css,js,php}'"
 
+# Reload Yabai
+alias reload-yabai="yabai -m rule --add app=SomeName manage=off"
 
+# AR Stuff
+export PATH=$PATH:/Users/arbitrarily/Downloads/usdpython_0/USD
+export PYTHONPATH=$PYTHONPATH:/Users/arbitrarily/Downloads/usdpython_0/USD
+
+export PATH="/usr/local/opt/php@7.3/bin:$PATH"
+export PATH="/usr/local/opt/php@7.3/sbin:$PATH"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
