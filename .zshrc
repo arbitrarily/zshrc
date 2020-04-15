@@ -310,7 +310,10 @@ alias sqldump="sh dump.sh SERVERUSERNAME SERVERIP DBNAME DBUSERNAME DBPASSWORD"
 alias rgweb="rg --type-add 'web:*.{html,css,js,php}'"
 
 # Reload Yabai
-alias reload-yabai="yabai -m rule --add app=SomeName manage=off"
+alias reload-yabai='launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"'
+
+# Edit Yabairc
+alias yabairc="sudo vim ~/Git/yabairc/.yabairc"
 
 # AR Stuff
 export PATH=$PATH:/Users/arbitrarily/Downloads/usdpython_0/USD
@@ -320,7 +323,12 @@ export PYTHONPATH=$PYTHONPATH:/Users/arbitrarily/Downloads/usdpython_0/USD
 export PATH="/usr/local/opt/php@7.3/bin:$PATH"
 export PATH="/usr/local/opt/php@7.3/sbin:$PATH"
 
+# Fuzzy Search
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Z (Tracks most-used directories to make cd smarter)
+. /usr/local/etc/profile.d/z.s
 
 # Servers
 alias dobox="ssh marko@45.55.60.122"
+alias archCakes="ssh marko@192.168.0.10"
