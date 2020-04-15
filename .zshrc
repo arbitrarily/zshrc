@@ -327,7 +327,7 @@ export PATH="/usr/local/opt/php@7.3/sbin:$PATH"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Z (Tracks most-used directories to make cd smarter)
-. /usr/local/etc/profile.d/z.s
+. /usr/local/etc/profile.d/z.sh
 
 # Servers
 alias dobox="ssh marko@45.55.60.122"
