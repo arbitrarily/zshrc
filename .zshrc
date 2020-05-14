@@ -150,7 +150,11 @@ alias cpwd='pwd|tr -d "\n"|pbcopy'
 alias ungit='find . -name '.git' -exec rm -rf {} \;'
 
 # IP info
-alias ip='curl https://ipinfo.io/plain; echo'
+# alias ip='curl https://ipinfo.io/plain; echo'
+alias scrapeip='curl https://icanhazip.com; echo'
+myip() {
+    ip addr | awk '/inet / {sub(/\/.*/, "", $2); print $2}'
+}
 # alias ip="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 
 # computer power options
@@ -176,7 +180,7 @@ alias gg='cd ~/Git'
 alias connections='lsof -i'
 
 # alias for detailed, colored ls
-alias ls='exa -lhaG'
+alias ls='exa -lhaGF --icons --git'
 
 # PATH
 export PATH="/usr/local/bin:$PATH"
@@ -208,6 +212,9 @@ alias neo="neofetch --config ~/.config/neofetch/config.conf"
 
 # Edit NeoFetch
 alias editneo="vim /Users/arbitrarily/Git/neofetch-settings/config.conf"
+
+# Edit Vimrc
+alias vimrc="vim /Users/arbitrarily/Git/vimrc/vimrc"
 
 # Startup Common Projects
 alias proj-disrupt="itermocil disrupt"
@@ -256,6 +263,7 @@ alias proj-made-you-feel="itermocil made-you-feel"
 alias proj-nuristay="itermocil nuristay"
 alias proj-breakaway="itermocil breakaway"
 alias proj-one-planet-one-future="itermocil one-planet-one-future"
+alias proj-weedfeed="itermocil weedfeed"
 
 # Edit iTermocil
 alias edititermocil="subl ~/.itermocil"
@@ -266,8 +274,8 @@ compctl -g '~/.itermocil/*(:t:r)' itermocil
 
 # Google Search
 alias define='googler -n 2 --colors bjdxxy define'
-alias g='googler -n 11 -t m18 --colors bjdxxy'
-alias gn='googler -N -n 11 -t d1 --colors bjdxxy'
+alias google='googler -n 11 -t m18 --colors bjdxxy'
+alias googlenews='googler -N -n 11 -t d1 --colors bjdxxy'
 
 # Now Playing
 alias nowplaying="sh ~/song.sh"
@@ -307,7 +315,7 @@ alias check-open-connection="sudo lsof -iTCP -sTCP:LISTEN -n -P"
 alias sqldump="sh dump.sh SERVERUSERNAME SERVERIP DBNAME DBUSERNAME DBPASSWORD"
 
 # RIPGREP
-alias rgweb="rg --type-add 'web:*.{html,css,js,php}'"
+alias rgweb="rg --type-add 'web:*.{html,css,scss,js,php}'"
 
 # Reload Yabai
 alias reload-yabai='launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"'
@@ -316,8 +324,8 @@ alias reload-yabai='launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"'
 alias yabairc="sudo vim ~/Git/yabairc/.yabairc"
 
 # AR Stuff
-export PATH=$PATH:/Users/arbitrarily/Downloads/usdpython_0/USD
-export PYTHONPATH=$PYTHONPATH:/Users/arbitrarily/Downloads/usdpython_0/USD
+# export PATH=$PATH:/Users/arbitrarily/Downloads/usdpython_0/USD
+# export PYTHONPATH=$PYTHONPATH:/Users/arbitrarily/Downloads/usdpython_0/USD
 
 # PHP Stuff
 export PATH="/usr/local/opt/php@7.3/bin:$PATH"
@@ -332,3 +340,13 @@ export PATH="/usr/local/opt/php@7.3/sbin:$PATH"
 # Servers
 alias dobox="ssh marko@45.55.60.122"
 alias archCakes="ssh marko@192.168.0.10"
+
+# Override cmus with sudo
+alias cmus="sudo cmus"
+
+# Is Up?
+# is-up --help
+
+# Check Directory Files for Size, Sort By Size
+# ncdu
+
