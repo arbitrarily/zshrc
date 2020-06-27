@@ -56,7 +56,7 @@ ZSH_THEME="honukai"
 plugins=(git cloudapp node npm bower brew osx extract z composer)
 
 # User configuration
-export PATH="/usr/bin/local:/usr/local/bin/psql:/bin:/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:/bin:/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:/Users/arbitrarily/pear/bin:/Users/arbitrarily/.composer/vendor/bin:/usr/local/share/npm/bin:/usr/local/bin:/usr/local/mysql/bin:/usr/local/share/npm/lib/node_modules/grunt-cli/bin:/usr/sbin/apachectl:/usr/sbin:/usr/local/share/npm/bin:/usr/local/mongodb/bin:/usr/local/opt/ncurses/bin:/usr/local/php5/bin:/Users/arbitrarily/Library/Python/2.7/bin"
+export PATH="/usr/bin/local:/usr/local/bin/psql:/bin:/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:/bin:/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:/Users/arbitrarily/pear/bin:/Users/arbitrarily/.composer/vendor/bin:/usr/local/share/npm/bin:/usr/local/bin:/usr/local/mysql/bin:/usr/local/share/npm/lib/node_modules/grunt-cli/bin:/usr/sbin/apachectl:/usr/sbin:/usr/local/share/npm/bin:/usr/local/mongodb/bin:/usr/local/opt/ncurses/bin:/usr/local/php5/bin:/Users/arbitrarily/Library/Python/2.7/bin:/usr/local/bin/compass"
 # export MANPATH="/usr/local/man:$MANPATH"
 # export PATH="$(brew --prefix homebrew/php/php72)/bin:$PATH"
 
@@ -92,9 +92,6 @@ alias ~="cd ~"
 
 # clear
 alias c='clear'
-
-# top as htop
-# alias top='htop'
 
 # edit php.ini
 alias phpini='sudo vim /usr/local/etc/php/7.3/php.ini'
@@ -264,6 +261,8 @@ alias proj-nuristay="itermocil nuristay"
 alias proj-breakaway="itermocil breakaway"
 alias proj-one-planet-one-future="itermocil one-planet-one-future"
 alias proj-weedfeed="itermocil weedfeed"
+alias proj-tchnrds="itermocil tchnrds"
+alias proj-lukes="itermocil lukes"
 
 # Edit iTermocil
 alias edititermocil="subl ~/.itermocil"
@@ -344,9 +343,30 @@ alias archCakes="ssh marko@192.168.0.10"
 # Override cmus with sudo
 alias cmus="sudo cmus"
 
-# Is Up?
+# Restart Yabai
+alias yabai-restart='launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"'
+
+# Run PHP server quickly
+alias dev="kill -9 $(lsof -i:9999 -t); php -S localhost:9999"
+
+###############
+#### NOTES ####
+###############
+
+# Is Up? Check if site is up
 # is-up --help
+
+# Kill Processes - Run fkill without arguments to launch the interactive UI.
+# fkill
+
+# List NPM Globally Installed Packages
+# npm list -g --depth 0
 
 # Check Directory Files for Size, Sort By Size
 # ncdu
+
+# How to Get Past SIP & Not Being Able to Access Root
+# sudo mount -uw / && killall Finder
+
+export PATH="/usr/local/opt/ruby/bin:$PATH"
 
