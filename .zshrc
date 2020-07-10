@@ -1,14 +1,14 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/arbitrarily/.oh-my-zsh
+export ZSH=/Users/marko/.oh-my-zsh
 
 # Run NeoFetch
-neofetch --config ~/.config/neofetch/config.conf
+neofetch --config ~/Git/neofetch-settings/config.conf
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="honukai"
+ZSH_THEME="sorin"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -53,16 +53,16 @@ ZSH_THEME="honukai"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git cloudapp node npm bower brew osx extract z composer)
+plugins=(git node npm bower brew osx extract z composer)
 
 # User configuration
-export PATH="/usr/bin/local:/usr/local/bin/psql:/bin:/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:/bin:/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:/Users/arbitrarily/pear/bin:/Users/arbitrarily/.composer/vendor/bin:/usr/local/share/npm/bin:/usr/local/bin:/usr/local/mysql/bin:/usr/local/share/npm/lib/node_modules/grunt-cli/bin:/usr/sbin/apachectl:/usr/sbin:/usr/local/share/npm/bin:/usr/local/mongodb/bin:/usr/local/opt/ncurses/bin:/usr/local/php5/bin:/Users/arbitrarily/Library/Python/2.7/bin:/usr/local/bin/compass"
+export PATH="/usr/bin/local:/usr/local/bin/psql:/bin:/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:/bin:/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:/Users/marko/pear/bin:/Users/marko/.composer/vendor/bin:/usr/local/share/npm/bin:/usr/local/bin:/usr/local/mysql/bin:/usr/local/share/npm/lib/node_modules/grunt-cli/bin:/usr/sbin/apachectl:/usr/sbin:/usr/local/share/npm/bin:/usr/local/mongodb/bin:/usr/local/opt/ncurses/bin:/usr/local/php5/bin:/Users/marko/Library/Python/2.7/bin:/usr/local/bin/compass"
 # export MANPATH="/usr/local/man:$MANPATH"
 # export PATH="$(brew --prefix homebrew/php/php72)/bin:$PATH"
 
 # Reload
 source $ZSH/oh-my-zsh.sh
-source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 alias reload="source ~/.zshrc"
 
 # You may need to manually set your language environment
@@ -94,10 +94,11 @@ alias ~="cd ~"
 alias c='clear'
 
 # edit php.ini
-alias phpini='sudo vim /usr/local/etc/php/7.3/php.ini'
+alias phpini='sudo vim /usr/local/etc/php/7.4/php.ini'
 
 # edit httpd.conf
-alias apacheconf='sudo vim /etc/apache2/httpd.conf'
+# alias apacheconf='sudo vim /etc/apache2/httpd.conf'
+alias apacheconf='sudo vim /usr/local/etc/httpd/httpd.conf'
 
 # edit new httpd.conf
 alias apachconfnew='sudo vim /usr/local/etc/httpd/httpd.conf'
@@ -109,7 +110,7 @@ alias hosts='sudo vim /etc/hosts'
 alias editzsh='sudo vim ~/Git/zshrc/.zshrc'
 
 # edit user.conf
-alias userconf='sudo vim /etc/apache2/users/arbitrarily.conf'
+alias userconf='sudo vim /etc/apache2/users/marko.conf'
 
 # edit httpd-vhosts.conf
 alias vhosts='sudo vim /private/etc/apache2/extra/httpd-vhosts.conf'
@@ -186,7 +187,7 @@ export PATH="/usr/local/bin:$PATH"
 export PIP_REQUIRE_VIRTUALENV=false
 
 # MiniConda
-# export PATH="/Users/arbitrarily/miniconda3/bin:$PATH"
+# export PATH="/Users/marko/miniconda3/bin:$PATH"
 
 # Node
 export PATH="$HOME/.node/bin:$PATH"
@@ -205,13 +206,13 @@ alias neofetch2="neofetch \
 "
 
 # Run NeoFetch
-alias neo="neofetch --config ~/.config/neofetch/config.conf"
+alias neo="neofetch --config ~/Git/neofetch-settings/config.conf"
 
 # Edit NeoFetch
-alias editneo="vim /Users/arbitrarily/Git/neofetch-settings/config.conf"
+alias editneo="vim ~/Git/neofetch-settings/config.conf"
 
 # Edit Vimrc
-alias vimrc="vim /Users/arbitrarily/Git/vimrc/vimrc"
+alias vimrc="vim /Users/marko/Git/vimrc/vimrc"
 
 # Startup Common Projects
 alias proj-disrupt="itermocil disrupt"
@@ -323,8 +324,8 @@ alias reload-yabai='launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"'
 alias yabairc="sudo vim ~/Git/yabairc/.yabairc"
 
 # AR Stuff
-# export PATH=$PATH:/Users/arbitrarily/Downloads/usdpython_0/USD
-# export PYTHONPATH=$PYTHONPATH:/Users/arbitrarily/Downloads/usdpython_0/USD
+# export PATH=$PATH:/Users/marko/Downloads/usdpython_0/USD
+# export PYTHONPATH=$PYTHONPATH:/Users/marko/Downloads/usdpython_0/USD
 
 # PHP Stuff
 export PATH="/usr/local/opt/php@7.3/bin:$PATH"
