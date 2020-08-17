@@ -264,6 +264,7 @@ alias proj-one-planet-one-future="itermocil one-planet-one-future"
 alias proj-weedfeed="itermocil weedfeed"
 alias proj-tchnrds="itermocil tchnrds"
 alias proj-lukes="itermocil lukes"
+alias proj-chains-solutions-ltd="itermocil chains-solutions-ltd"
 
 # Edit iTermocil
 alias edititermocil="subl ~/.itermocil"
@@ -368,6 +369,17 @@ alias dev="kill -9 $(lsof -i:9999 -t); php -S localhost:9999"
 
 # How to Get Past SIP & Not Being Able to Access Root
 # sudo mount -uw / && killall Finder
+
+# Git
+#
+# List total commits by author (sorted by commit count)
+# git shortlog -sn
+
+# List file change stats by author
+# git log --author="Marko Bajlovic" --pretty=tformat: --numstat | awk '{inserted+=$1; deleted+=$2; delta+=$1-$2; ratio=deleted/inserted} END {printf "Commit stats:\n- Lines added (total)....  %s\n- Lines deleted (total)..  %s\n- Total lines (delta)....  %s\n- Add./Del. ratio (1:n)..  1 : %s\n", inserted, deleted, delta, ratio }' -
+
+# Git Quick Stats
+# git-quick-stats
 
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 
