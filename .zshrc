@@ -53,6 +53,9 @@ ZSH_THEME="sorin"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+
+export NVM_LAZY_LOAD=true
+export NVM_COMPLETION=true
 plugins=(zsh-nvm git extract z)
 
 # User configuration
@@ -60,9 +63,9 @@ export PATH="/usr/bin/local:/usr/local/bin/psql:/bin:/sbin:/usr/bin:/usr/local/s
 
 # Reload
 source $ZSH/oh-my-zsh.sh
-source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /Users/marko/.oh-my-zsh/custom/plugins/zsh-nvm/zsh-nvm.plugin.zsh
-alias reload="source ~/.zshrc"
+# source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source /Users/marko/.oh-my-zsh/custom/plugins/zsh-nvm/zsh-nvm.plugin.zsh
+# alias reload="source ~/.zshrc"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -112,7 +115,8 @@ alias editzsh='sudo vim ~/Git/zshrc/.zshrc'
 alias userconf='sudo vim /etc/apache2/users/marko.conf'
 
 # edit httpd-vhosts.conf
-alias vhosts='sudo vim /private/etc/apache2/extra/httpd-vhosts.conf'
+#alias vhosts='sudo vim /private/etc/apache2/extra/httpd-vhosts.conf'
+alias vhosts='sudo vim /usr/local/etc/httpd/extra/httpd-vhosts.conf'
 
 # apache logs
 alias apachelogs="less +F /var/log/apache2/error_log"
@@ -215,60 +219,25 @@ alias editneo="vim ~/Git/neofetch-settings/config.conf"
 alias vimrc="vim /Users/marko/Git/vimrc/vimrc"
 
 # Startup Common Projects
-alias proj-disrupt="itermocil disrupt"
-alias proj-civil="itermocil civil"
-alias proj-joincivil="itermocil joincivil"
-alias proj-ethereal="itermocil ethereal"
-alias proj-etherinthenews="itermocil etherinthenews"
-alias proj-lineage="itermocil lineage"
-alias proj-clansky="itermocil clansky"
-alias proj-special="itermocil special"
-alias proj-jwa="itermocil jwa"
-alias proj-pegasys="itermocil pegasys"
-alias proj-groundfloor="itermocil groundfloor"
-alias proj-kaleido="itermocil kaleido"
-alias proj-usesofcbd="itermocil usesofcbd"
-alias proj-setle-site="itermocil setle-site"
 alias proj-dumplinghouse-media="itermocil dumplinghouse-media"
 alias proj-dumplinghouse-shop="itermocil dumplinghouse-shop"
 alias proj-dumplinghouse-labs="itermocil dumplinghouse-labs"
 alias proj-dumplinghouse-studios="itermocil dumplinghouse-studios"
-alias proj-openlaw="itermocil openlaw"
-alias proj-skypod="itermocil skypod"
 alias proj-nomadworks="itermocil nomadworks"
 alias proj-oceanic="itermocil oceanic"
-alias proj-ujo="itermocil ujo"
 alias proj-mb4="itermocil mb4"
 alias proj-351="itermocil 351studios"
-alias proj-fwbw="itermocil fwbw"
 alias proj-nbtv="itermocil nbtv"
-alias proj-drumg="itermocil drumg"
-alias proj-balanc3="itermocil balanc3"
-alias proj-consensys-sports="itermocil consensys-sports"
-alias proj-allinfra="itermocil allinfra"
-alias proj-blockchain-ireland="itermocil blockchain-ireland"
-alias proj-ansero="itermocil ansero"
-alias proj-consensys-health="itermocil consensys-health"
-alias proj-metamask="itermocil metamask"
-alias proj-metamask-wordpress="itermocil metamask-wordpress"
 alias proj-tfx="itermocil tfx"
 alias proj-good-apple="itermocil good-apple"
 alias proj-day-one-ventures="itermocil day-one-ventures"
 alias proj-lexichronic="itermocil lexichronic"
 alias proj-miroculus="itermocil miroculus"
 alias proj-zacklevandov="itermocil zack"
-alias proj-made-you-feel="itermocil made-you-feel"
-alias proj-nuristay="itermocil nuristay"
 alias proj-breakaway="itermocil breakaway"
-alias proj-one-planet-one-future="itermocil one-planet-one-future"
 alias proj-weedfeed="itermocil weedfeed"
-alias proj-tchnrds="itermocil tchnrds"
 alias proj-lukes="itermocil lukes"
-alias proj-chains-solutions-ltd="itermocil chains-solutions-ltd"
 alias proj-badderink="itermocil badderink"
-alias proj-etclabs="itermocil etclabs"
-alias proj-relentless-gadgets="itermocil constant-brews"
-alias proj-constant-brews="itermocil constant-brews"
 alias proj-unworldoceansday="itermocil unworldoceansday"
 alias proj-hiphoped="itermocil hiphoped"
 
@@ -311,7 +280,7 @@ alias weather="curl wttr.in/nyc"
 alias communication="open -a 'Slack'; open -a 'Mimestream'; open -a 'Discord'; open -a 'Messages'"
 
 # Autocompletion
-eval "$(grunt --completion=zsh)"
+# eval "$(grunt --completion=zsh)"
 
 # vTop
 alias top="bpytop"
@@ -374,6 +343,9 @@ alias stats="sudo powermetrics --samplers smc -i1 -n1"
 # List NPM Globally Installed Packages
 # npm list -g --depth 0
 
+# List Process Using Pore
+# sudo lsof -i :9999
+
 # Check Directory Files for Size, Sort By Size
 # ncdu
 
@@ -395,6 +367,7 @@ alias stats="sudo powermetrics --samplers smc -i1 -n1"
 # lighthouse https://marko.tech --view
 
 export PATH="/usr/local/opt/ruby/bin:$PATH"
+# export NODE_ENV=development
 
 # Python 3
 alias python=python3
@@ -414,4 +387,11 @@ alias proj-nftdao="itermocil nftdao"
 alias proj-jikoni="itermocil jikoni"
 alias proj-upsl="itermocil upsl"
 alias proj-374water="itermocil 374water"
+alias proj-marshmallowlaserfeast="itermocil marshmallowlaserfeast"
+alias proj-albertobeer="itermocil albertobeer"
 
+export PATH="/usr/local/opt/php@8.0/sbin:$PATH"
+export PATH="/usr/local/opt/php@8.0/bin:$PATH"
+
+
+alias NPM_TOKEN="95d25032-85a8-44d2-8a46-16b36203671b"
