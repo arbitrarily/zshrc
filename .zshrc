@@ -1,5 +1,22 @@
+#!/usr/bin/env sh
+
+# the scripting-addition must be loaded manually if
+# you are running yabai on macOS Big Sur. Uncomment
+# the following line to have the injection performed
+# when the config is executed during startup.
+#
+# for this to work you must configure sudo such that
+# it will be able to run the command without password
+#
+# see this wiki page for information:
+#  - https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)
+#
+
+# sudo yabai --load-sa
+# yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/marko/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 # Run NeoFetch
 neofetch --config ~/Git/neofetch-settings/config.conf
@@ -58,17 +75,27 @@ export NVM_LAZY_LOAD=true
 export NVM_COMPLETION=true
 plugins=(zsh-nvm git extract z)
 
-# User configuration
-export PATH="/usr/bin/local:/usr/local/bin/psql:/bin:/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:/bin:/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:/Users/marko/pear/bin:/Users/marko/.composer/vendor/bin:/usr/local/share/npm/bin:/usr/local/bin:/usr/local/mysql/bin:/usr/local/share/npm/lib/node_modules/grunt-cli/bin:/usr/sbin/apachectl:/usr/sbin:/usr/local/share/npm/bin:/usr/local/mongodb/bin:/usr/local/opt/ncurses/bin:/usr/local/php5/bin:/Users/marko/Library/Python/2.7/bin:/usr/local/bin/compass"
+# PATH
+export PATH="/usr/bin/local:/usr/local/bin/psql:/bin:/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:/bin:/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:~/pear/bin:~/.composer/vendor/bin:/usr/local/share/npm/bin:/usr/local/bin:/usr/local/mysql/bin:/usr/local/share/npm/lib/node_modules/grunt-cli/bin:/usr/sbin/apachectl:/usr/sbin:/usr/local/share/npm/bin:/usr/local/mongodb/bin:/usr/local/opt/ncurses/bin:/usr/local/php5/bin:/usr/local/bin/compass"
+export PATH="/usr/local/bin:$PATH"
+export PATH="$HOME/.node/bin:$PATH"
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+export PATH="/usr/local/opt/php@8.0/bin:$PATH"
+export PATH="/usr/local/opt/php@8.0/sbin:$PATH"
+export PATH="/usr/local/opt/mpv-iina/bin:$PATH"
+# export PATH="~/miniconda3/bin:$PATH"
 
 # Reload
 source $ZSH/oh-my-zsh.sh
-# source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# source /Users/marko/.oh-my-zsh/custom/plugins/zsh-nvm/zsh-nvm.plugin.zsh
-# alias reload="source ~/.zshrc"
+source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.oh-my-zsh/custom/plugins/zsh-nvm/zsh-nvm.plugin.zsh
+alias reload="source ~/.zshrc"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -76,12 +103,6 @@ if [[ -n $SSH_CONNECTION ]]; then
 else
     export EDITOR='mvim'
 fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 # alias for sublime
 alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
@@ -96,7 +117,7 @@ alias ~="cd ~"
 alias c='clear'
 
 # edit php.ini
-alias phpini='sudo vim /usr/local/etc/php/7.4/php.ini'
+alias phpini='sudo vim /usr/local/etc/php/8.0/php.ini'
 
 # edit httpd.conf
 # alias apacheconf='sudo vim /etc/apache2/httpd.conf'
@@ -112,10 +133,9 @@ alias hosts='sudo vim /etc/hosts'
 alias editzsh='sudo vim ~/Git/zshrc/.zshrc'
 
 # edit user.conf
-alias userconf='sudo vim /etc/apache2/users/marko.conf'
+alias userconf='sudo vim /etc/apache2~.conf'
 
 # edit httpd-vhosts.conf
-#alias vhosts='sudo vim /private/etc/apache2/extra/httpd-vhosts.conf'
 alias vhosts='sudo vim /usr/local/etc/httpd/extra/httpd-vhosts.conf'
 
 # apache logs
@@ -131,7 +151,6 @@ alias keys='pbcopy < ~/.ssh/id_rsa.pub'
 alias flush='sudo ifconfig en0 down && sudo ifconfig en1 down && sudo ifconfig en2 down && sudo route flush && sudo ifconfig en0 up && sudo ifconfig en1 up && sudo ifconfig en2 up'
 
 # edit zshell
-# alias zshrc='sudo vim ~/.zshrc'
 alias zshrc='editzsh'
 
 # find todos
@@ -152,17 +171,18 @@ alias ungit='find . -name '.git' -exec rm -rf {} \;'
 
 # IP info
 # alias ip='curl https://ipinfo.io/plain; echo'
+# alias ip="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 alias scrapeip='curl https://icanhazip.com; echo'
+alias ip='curl https://icanhazip.com; echo'
 myip() {
     ip addr | awk '/inet / {sub(/\/.*/, "", $2); print $2}'
 }
-# alias ip="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 
 # computer power options
 alias reboot='sudo /sbin/reboot'
 alias shutdown='sudo /sbin/shutdown'
-alias lock='/System/Library/CoreServices/"Menu Extras"/User.menu/Contents/Resources/CGSession -suspend'
-alias poweroff='sudo /sbin/poweroff'
+# alias poweroff='sudo /sbin/poweroff'
+# alias lock='/System/Library/CoreServices/"Menu Extras"/User.menu/Contents/Resources/CGSession -suspend'
 # alias halt='sudo /sbin/halt'
 
 # git log detailed
@@ -184,20 +204,8 @@ alias connections='lsof -i'
 # alias for detailed, colored ls
 alias ls='exa -lhaGF --icons --git'
 
-# PATH
-export PATH="/usr/local/bin:$PATH"
-
 # PIP
 export PIP_REQUIRE_VIRTUALENV=false
-
-# MiniConda
-# export PATH="/Users/marko/miniconda3/bin:$PATH"
-
-# Node
-export PATH="$HOME/.node/bin:$PATH"
-
-# Check WIFI Passwords
-# wifi-password
 
 # Alt Neo Fetch
 alias neofetch2="neofetch \
@@ -215,31 +223,11 @@ alias neo="neofetch --config ~/Git/neofetch-settings/config.conf"
 # Edit NeoFetch
 alias editneo="vim ~/Git/neofetch-settings/config.conf"
 
-# Edit Vimrc
-alias vimrc="vim /Users/marko/Git/vimrc/vimrc"
+# Edit vimrc
+alias vimrc="vim ~/Git/vimrc/vimrc"
 
-# Startup Common Projects
-alias proj-dumplinghouse-media="itermocil dumplinghouse-media"
-alias proj-dumplinghouse-shop="itermocil dumplinghouse-shop"
-alias proj-dumplinghouse-labs="itermocil dumplinghouse-labs"
-alias proj-dumplinghouse-studios="itermocil dumplinghouse-studios"
-alias proj-nomadworks="itermocil nomadworks"
-alias proj-oceanic="itermocil oceanic"
-alias proj-mb4="itermocil mb4"
-alias proj-351="itermocil 351studios"
-alias proj-nbtv="itermocil nbtv"
-alias proj-tfx="itermocil tfx"
-alias proj-good-apple="itermocil good-apple"
-alias proj-day-one-ventures="itermocil day-one-ventures"
-alias proj-lexichronic="itermocil lexichronic"
-alias proj-miroculus="itermocil miroculus"
-alias proj-zacklevandov="itermocil zack"
-alias proj-breakaway="itermocil breakaway"
-alias proj-weedfeed="itermocil weedfeed"
-alias proj-lukes="itermocil lukes"
-alias proj-badderink="itermocil badderink"
-alias proj-unworldoceansday="itermocil unworldoceansday"
-alias proj-hiphoped="itermocil hiphoped"
+# Edit skhdrc
+alias skhdrc="vim ~/Git/skhdrc/.skhdrc"
 
 # Edit iTermocil
 alias edititermocil="subl ~/.itermocil"
@@ -251,49 +239,34 @@ alias desktop="cd ~/Desktop"
 source ~/.iterm2_shell_integration.`basename $SHELL`
 compctl -g '~/.itermocil/*(:t:r)' itermocil
 
-# Google Search
-alias define='googler -n 2 --colors bjdxxy define'
-alias google='googler -n 11 -t m18 --colors bjdxxy'
-alias googlenews='googler -N -n 11 -t d1 --colors bjdxxy'
-
 # Now Playing
-alias nowplaying="sh ~/song.sh"
+# alias nowplaying="sh ~/nowplaying/song.sh"
 
 # Send Nowplaying to Slack
 alias slackmusic="cd ~/Git/node-slack-fm-status && node run.js desmosthenes"
+alias music="open -a 'Music'; open -a ~/Documents/Last.fm; cd ~/Git/node-slack-fm-status && node run.js desmosthenes"
 
+
+alias communication="open -a 'Slack'; open -a 'Mimestream'; open -a 'Discord'; open -a 'Messages'"
 # Close Finder Windows
 alias finder-close="osascript -e 'tell application \"Finder\" to close every window'"
 
 # Clean Brew
-alias brewski='brew update && brew upgrade && brew cleanup; brew doctor; brew missing; echo "Brewski Complete" | terminal-notifier -sound default -appIcon https://brew.sh/assets/img/homebrew-256x256.png -title "Homebrew"'
+alias brewski='brew update && brew upgrade && brew cleanup; brew doctor; brew missing; echo "\n Brewski Complete"; terminal-notifier -appIcon https://brew.sh/assets/img/homebrew-256x256.png -title "Homebrew" -message "Brewski Complete"'
 
 # Display Weather
 alias weather="curl wttr.in/nyc"
 
-# Load NVM
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 # Start the Day
 alias communication="open -a 'Slack'; open -a 'Mimestream'; open -a 'Discord'; open -a 'Messages'"
 
-# Autocompletion
-# eval "$(grunt --completion=zsh)"
-
 # vTop
-alias top="bpytop"
 # alias top="vtop --theme wizard"
+alias top="bpytop"
 alias oldtop="/usr/bin/top"
 
 # Check Active Connections
 alias check-open-connection="sudo lsof -iTCP -sTCP:LISTEN -n -P"
-
-# SQL Dump Script
-# sh dump.sh SERVERUSERNAME SERVERIP DBNAME DBUSERNAME DBPASSWORD
-alias sqldump="sh dump.sh SERVERUSERNAME SERVERIP DBNAME DBUSERNAME DBPASSWORD"
-
 
 # RIPGREP
 alias rgweb="rg --type-add 'web:*.{html,css,scss,js,php}'"
@@ -303,10 +276,6 @@ alias yabai-reload='launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"'
 
 # Edit Yabairc
 alias yabairc="sudo vim ~/Git/yabairc/.yabairc"
-
-# AR Stuff
-# export PATH=$PATH:/Users/marko/Downloads/usdpython_0/USD
-# export PYTHONPATH=$PYTHONPATH:/Users/marko/Downloads/usdpython_0/USD
 
 # Fuzzy Search
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -324,11 +293,38 @@ alias cmus="sudo cmus"
 # Run PHP server quickly
 alias dev="kill -9 $(lsof -i:9999 -t); php -S localhost:9999"
 
-# Speedtest
-# alias speedtest="speedtest-cli --server 22774 --server 32494 --server 982 --server 36817 --server 38461 --server 5029 --server 16976 --server 10546 --server 30514"
-
 # Stats
 alias stats="sudo powermetrics --samplers smc -i1 -n1"
+
+# Python 3
+alias python=python3
+
+# Startup Common Projects
+alias proj-mb4="itermocil mb4"
+alias proj-lexichronic="itermocil lexichronic"
+alias proj-badderink="itermocil badderink"
+alias proj-albertobeer="itermocil albertobeer"
+alias proj-nftnow="itermocil nftnow"
+alias proj-nomadworks="itermocil nomadworks"
+alias proj-351="itermocil 351studios"
+alias proj-good-apple="itermocil good-apple"
+alias proj-miroculus="itermocil miroculus"
+alias proj-lukes="itermocil lukes"
+alias proj-unworldoceansday="itermocil unworldoceansday"
+alias proj-hiphoped="itermocil hiphoped"
+alias proj-fewocious="itermocil fewocious"
+alias proj-audienceofthefuture="itermocil audienceofthefuture"
+alias proj-findingsinthefuture="itermocil findingsinthefuture"
+alias proj-bluestandard="itermocil bluestandard"
+alias proj-upsl="itermocil upsl"
+
+# NPM Token
+alias NPM_TOKEN="95d25032-85a8-44d2-8a46-16b36203671b"
+
+# Load NVM
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 ###############
 #### NOTES ####
@@ -343,7 +339,7 @@ alias stats="sudo powermetrics --samplers smc -i1 -n1"
 # List NPM Globally Installed Packages
 # npm list -g --depth 0
 
-# List Process Using Pore
+# List Process Using Port
 # sudo lsof -i :9999
 
 # Check Directory Files for Size, Sort By Size
@@ -353,7 +349,6 @@ alias stats="sudo powermetrics --samplers smc -i1 -n1"
 # sudo mount -uw / && killall Finder
 
 # Git
-#
 # List total commits by author (sorted by commit count)
 # git shortlog -sn
 
@@ -366,32 +361,5 @@ alias stats="sudo powermetrics --samplers smc -i1 -n1"
 # Google Lightspeed
 # lighthouse https://marko.tech --view
 
-export PATH="/usr/local/opt/ruby/bin:$PATH"
-# export NODE_ENV=development
-
-# Python 3
-alias python=python3
-
-# Project Aliases
-alias proj-moodringcreations="itermocil moodringcreations"
-alias proj-testingthewesting="itermocil testingthewesting"
-alias proj-kindred="itermocil kindred"
-alias proj-nftnow="itermocil nftnow"
-alias proj-fewocious="itermocil fewocious"
-alias proj-valariti="itermocil valariti"
-alias proj-audienceofthefuture="itermocil audienceofthefuture"
-alias proj-trustory="itermocil trustory"
-alias proj-findingsinthefuture="itermocil findingsinthefuture"
-alias proj-bluestandard="itermocil bluestandard"
-alias proj-nftdao="itermocil nftdao"
-alias proj-jikoni="itermocil jikoni"
-alias proj-upsl="itermocil upsl"
-alias proj-374water="itermocil 374water"
-alias proj-marshmallowlaserfeast="itermocil marshmallowlaserfeast"
-alias proj-albertobeer="itermocil albertobeer"
-
-export PATH="/usr/local/opt/php@8.0/sbin:$PATH"
-export PATH="/usr/local/opt/php@8.0/bin:$PATH"
-
-
-alias NPM_TOKEN="95d25032-85a8-44d2-8a46-16b36203671b"
+# Check WIFI Passwords
+# wifi-password
