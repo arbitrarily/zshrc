@@ -91,6 +91,9 @@ source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighti
 source ~/.oh-my-zsh/custom/plugins/zsh-nvm/zsh-nvm.plugin.zsh
 alias reload="source ~/.zshrc"
 
+# AutoComplete
+source ~/Git/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
@@ -106,6 +109,7 @@ fi
 
 # alias for sublime
 alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
+# alias code="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin"
 
 # for those using edit
 alias edit='subl'
@@ -363,3 +367,4 @@ alias NPM_TOKEN="95d25032-85a8-44d2-8a46-16b36203671b"
 
 # Check WIFI Passwords
 # wifi-password
+
