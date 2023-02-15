@@ -310,17 +310,14 @@ alias proj-badderink="itermocil badderink"
 alias proj-albertobeer="itermocil albertobeer"
 alias proj-nftnow="itermocil nftnow"
 alias proj-nomadworks="itermocil nomadworks"
-alias proj-351="itermocil 351studios"
 alias proj-good-apple="itermocil good-apple"
-alias proj-miroculus="itermocil miroculus"
 alias proj-lukes="itermocil lukes"
 alias proj-unworldoceansday="itermocil unworldoceansday"
-alias proj-hiphoped="itermocil hiphoped"
 alias proj-fewocious="itermocil fewocious"
-alias proj-audienceofthefuture="itermocil audienceofthefuture"
-alias proj-findingsinthefuture="itermocil findingsinthefuture"
 alias proj-bluestandard="itermocil bluestandard"
 alias proj-upsl="itermocil upsl"
+alias proj-lexichronicv4="itermocil lexichronicv4"
+alias proj-lexiv4="itermocil lexiv4"
 
 # NPM Token
 alias NPM_TOKEN="95d25032-85a8-44d2-8a46-16b36203671b"
@@ -367,4 +364,3 @@ alias NPM_TOKEN="95d25032-85a8-44d2-8a46-16b36203671b"
 
 # Check WIFI Passwords
 # wifi-password
-
