@@ -318,9 +318,86 @@ alias proj-bluestandard="itermocil bluestandard"
 alias proj-upsl="itermocil upsl"
 alias proj-lexichronicv4="itermocil lexichronicv4"
 alias proj-lexiv4="itermocil lexiv4"
+alias startpage="itermocil startpage"
 
 # NPM Token
 alias NPM_TOKEN="95d25032-85a8-44d2-8a46-16b36203671b"
+
+# Infinite GPT
+alias gpt='python3 ~/Git/infiniteGPT/infiniteGPT/blastoff.py; terminal-notifier -appIcon https://brew.sh/assets/img/homebrew-256x256.png -title "GPT" -message "Response Complete"; afplay /Users/marko/Git/sounds/TR808WAV/MC/MC10.WAV;'
+
+
+# Display Weather
+alias weather="curl wttr.in/nyc"
+
+# Start the Day
+alias communication="open -a 'Slack'; open -a 'Mimestream'; open -a 'Discord'; open -a 'Messages'"
+
+# vTop
+# alias top="vtop --theme wizard"
+alias top="bpytop"
+alias oldtop="/usr/bin/top"
+
+# Check Active Connections
+alias check-open-connection="sudo lsof -iTCP -sTCP:LISTEN -n -P"
+
+# RIPGREP
+alias rgweb="rg --type-add 'web:*.{html,css,scss,js,php}'"
+
+# Reload Yabai
+alias yabai-reload='launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"'
+
+# Edit Yabairc
+alias yabairc="sudo vim ~/Git/yabairc/.yabairc"
+
+# Fuzzy Search
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Z (Tracks most-used directories to make cd smarter)
+. /usr/local/etc/profile.d/z.sh
+
+# Servers
+alias dobox="ssh marko@45.55.60.122"
+alias archCakes="ssh marko@192.168.0.10"
+
+# Override cmus with sudo
+alias cmus="sudo cmus"
+
+# Run PHP server quickly
+alias dev="kill -9 $(lsof -i:9999 -t); php -S localhost:9999"
+
+# Stats
+alias stats="sudo powermetrics --samplers smc -i1 -n1"
+
+# Connect to Airpod Maxes
+alias air="BluetoothConnector 08-ff-44-19-55-a6 --notify"
+alias airpods="BluetoothConnector 3c-4d-be-9f-c0-67 --notify"
+
+# Python 3
+alias python=python3
+
+# Startup Common Projects
+alias proj-mb4="itermocil mb4"
+alias proj-lexichronic="itermocil lexichronic"
+alias proj-badderink="itermocil badderink"
+alias proj-albertobeer="itermocil albertobeer"
+alias proj-nftnow="itermocil nftnow"
+alias proj-nomadworks="itermocil nomadworks"
+alias proj-good-apple="itermocil good-apple"
+alias proj-lukes="itermocil lukes"
+alias proj-unworldoceansday="itermocil unworldoceansday"
+alias proj-fewocious="itermocil fewocious"
+alias proj-bluestandard="itermocil bluestandard"
+alias proj-upsl="itermocil upsl"
+alias proj-lexichronicv4="itermocil lexichronicv4"
+alias proj-lexiv4="itermocil lexiv4"
+alias startpage="itermocil startpage"
+
+# NPM Token
+alias NPM_TOKEN="95d25032-85a8-44d2-8a46-16b36203671b"
+
+# Infinite GPT
+# alias gpt='python3 ~/Git/infiniteGPT/infiniteGPT/blastoff.py; 
 
 # Load NVM
 # export NVM_DIR="$HOME/.nvm"
@@ -364,3 +441,42 @@ alias NPM_TOKEN="95d25032-85a8-44d2-8a46-16b36203671b"
 
 # Check WIFI Passwords
 # wifi-password
+
+
+# JINA_CLI_BEGIN
+
+## autocomplete
+if [[ ! -o interactive ]]; then
+    return
+fi
+
+compctl -K _jina jina
+
+_jina() {
+  local words completions
+  read -cA words
+
+  if [ "${#words}" -eq 2 ]; then
+    completions="$(jina commands)"
+  else
+    completions="$(jina completions ${words[2,-2]})"
+  fi
+
+  reply=(${(ps:
+:)completions})
+}
+
+# session-wise fix
+ulimit -n 4096
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
+# JINA_CLI_END
+
+
+
+
+
+
+
+
+
