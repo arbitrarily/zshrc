@@ -251,12 +251,15 @@ alias slackmusic="cd ~/Git/node-slack-fm-status && node run.js desmosthenes"
 alias music="open -a 'Music'; open -a ~/Documents/Last.fm; cd ~/Git/node-slack-fm-status && node run.js desmosthenes"
 
 
-alias communication="open -a 'Slack'; open -a 'Mimestream'; open -a 'Discord'; open -a 'Messages'"
+alias communication="open -a 'Slack'; open -a 'Mimestream'; open -a 'Discord'; open -a 'Messages'; open -a 'WhatsApp'"
 # Close Finder Windows
 alias finder-close="osascript -e 'tell application \"Finder\" to close every window'"
 
 # Clean Brew
 alias brewski='brew update && brew upgrade && brew cleanup; brew doctor; brew missing; echo "\n Brewski Complete"; terminal-notifier -appIcon https://brew.sh/assets/img/homebrew-256x256.png -title "Homebrew" -message "Brewski Complete"'
+
+# NPM Run Dev
+alias nrd="npm run dev"
 
 # Display Weather
 alias weather="curl wttr.in/nyc"
@@ -301,7 +304,7 @@ alias dev="kill -9 $(lsof -i:9999 -t); php -S localhost:9999"
 alias stats="sudo powermetrics --samplers smc -i1 -n1"
 
 # Python 3
-alias python=python3
+# alias python=python3
 
 # Startup Common Projects
 alias proj-mb4="itermocil mb4"
@@ -395,6 +398,9 @@ alias startpage="itermocil startpage"
 
 # NPM Token
 alias NPM_TOKEN="95d25032-85a8-44d2-8a46-16b36203671b"
+
+alias sp="cd ~/Git/startpage-v2; git pull; code .; npm run dev"
+alias spd="cd ~/Git/startpage-data; git pull; code ."
 
 # Infinite GPT
 # alias gpt='python3 ~/Git/infiniteGPT/infiniteGPT/blastoff.py; 
